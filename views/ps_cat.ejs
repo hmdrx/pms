@@ -1,0 +1,37 @@
+<%- include('header') %> 
+
+     
+    <div class="row justify-content-center">
+      <div class="col-md-8 mb-4 mt-3  text-dark">
+        <h2>Password Category List</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Password Category</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(records.length> 0){
+              records.forEach((row)=>{ %>
+              <tr>
+                <td>
+                  <%= row.ps_cat %>
+                </td>
+                <td>
+                  <a href="/p_category/edit/<%= row._id %>"><i class="bi bi-pencil-square"></i></a>
+                  <a href="/p_category/delete/<%= row._id %>"><i class="bi bi-trash-fill"></i></a>
+                </td>
+              </tr>
+              <% })} %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <%- include('footer') %> 

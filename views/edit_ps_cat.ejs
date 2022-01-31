@@ -1,0 +1,38 @@
+<%- include('header') %> 
+
+           
+        <div class="container-fluid">
+
+      
+            <div class="row justify-content-center">
+                          <div class="col-md-6 bg-primary text-white">
+                <h2>Edit Category </h2>
+              </div>
+            </div>
+      
+            <div class="row justify-content-center mb-2">
+              <div class="col-md-6 border border-info pb-2 pt-5">
+                <% if(errors != ''){ %> 
+                  <p class="text-danger"><%= errors.catName.msg %> </p>
+                  <% } %> 
+                <% if(success != ''){ %> 
+                  <p class="text-primary"><%= success %> </p>
+                  <% } %> 
+                <form action="/p_category/edit/" method="post">
+                    <input type="hidden" name="id" value="<%= id %> ">
+                  <div class="mb-3">
+                    <label for="catName" class="form-label">Category Name</label>
+                    
+                    <input type="text" class="form-control" value="<%= records.ps_cat%> " name="catName" placeholder="Enter Your Category">
+                    </div>
+                 
+                 
+                  <button type="submit" class="btn btn-primary">update</button>
+                </form>
+              </div>
+            </div>
+      
+          </div>
+
+          <%- include('footer') %> 
+

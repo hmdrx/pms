@@ -1,0 +1,70 @@
+<%- include('header') %> 
+
+     
+    <div class="row justify-content-center">
+      <div class="col-md-8 mb-4 mt-3  text-dark">
+        <h2>Saved Passwords</h2>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Password Category</th>
+              <th scope="col">Project Name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% if(records.length> 0){
+              records.forEach((row)=>{ %>
+              <tr>
+                <td>
+                  <%= row.ps_cat %>
+                </td>
+                <td>
+                  <%= row.pro_name %>
+                </td>
+
+                <td>
+
+                  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#model<%= row._id %>">
+                    <i class="bi bi-eye-fill"></i>
+                  </button>
+                  <a href="/ps/edit/<%= row._id %>"><i class="bi bi-pencil-fill"></i></a>
+                  <a href="/ps/delete/<%= row._id %>" onclick="return confirm('are you sure?')"><i class="bi bi-trash-fill"></i></a>
+                </td>
+              </tr>
+              <div class="modal fade" id="model<%= row._id %>" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      <%- row.ps_details %>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <% })} %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  <%- include('footer') %> 

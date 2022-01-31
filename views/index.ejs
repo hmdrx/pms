@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <title>pms</title>
+</head>
+  <body>
+    <div class="container-fluid">
+
+      
+      <div class="row justify-content-center">
+        <div class="col-12 text-center bg-primary mb-5 text-white">
+          <h1><%= title %> </h1>
+        </div>
+        <div class="col-md-6 bg-primary text-center text-white">
+          <h2>Login </h2>
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+        <div class="col-md-6 border border-info pb-2 pt-5">
+          <% if(msg != ''){  %> 
+            <p><%= msg %> </p>
+            <% } %> 
+          <form action="" method="post">
+            <div class="mb-3">
+              <label for="uname" class="form-label">Username</label>
+              <input type="text" class="form-control" name="uname" placeholder="Enter Your Username">
+              </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" name="password">
+            </div>
+           
+            <button type="submit" class="btn btn-primary">Login</button>
+            <p>You don't have account? <a href="/signup">Create an Account</a></p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+
+  </body>
+</html>
